@@ -1,0 +1,44 @@
+Crear la base de datos
+create database proyecto;
+use proyecto;
+
+▪ Crear el usuario para realizar la conexión
+CREATE USER 'crudProyecto'@'localhost' IDENTIFIED BY 'proyecto123';
+▪ Asignar permisos al usuario
+GRANT DELETE, INSERT, SELECT, UPDATE ON `proyecto`.* TO 'crudProyecto'@'localhost';
+
+▪ Crear la tabla usuarios
+create table usuarios(
+id INT(3) NOT NULL AUTO_INCREMENT,
+usuario VARCHAR(100) NOT NULL,
+contraseña VARCHAR(120) NOT NULL,
+nombreCompleto VARCHAR(220),
+PRIMARY KEY(id)
+);
+
+▪ Crear la tabla estudiantes
+create table estudiantes(
+id INT(3) NOT NULL AUTO_INCREMENT,
+nombre VARCHAR(220) NOT NULL,
+telefono VARCHAR(10) NOT NULL,
+correo VARCHAR(100),
+PRIMARY KEY(id)
+);
+
+▪ Crear la tabla materias
+create table materias(
+id INT(3) NOT NULL AUTO_INCREMENT,
+nombreMateria VARCHAR(50) NOT NULL,
+PRIMARY KEY(id)
+);
+
+▪ Crear la tabla registrosNotas
+create table registrosNotas(
+id INT(3) NOT NULL AUTO_INCREMENT,
+nombreEstudiante VARCHAR(220) NOT NULL,
+nombreMateria VARCHAR(50) NOT NULL,
+nota VARCHAR(2),
+motivoNota VARCHAR(100),
+PRIMARY KEY(id)
+);
+
